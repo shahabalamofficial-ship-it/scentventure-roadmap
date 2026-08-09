@@ -1,0 +1,2073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ScentVenture - Zishan's Perfume Business Roadmap">
+    <meta name="theme-color" content="#2c5f2d">
+    <title>ScentVenture | Zishan's Perfume Empire</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary: #2c5f2d;
+            --primary-dark: #1a3d1b;
+            --primary-light: #4a8c4d;
+            --secondary: #97bc62;
+            --accent: #ffc107;
+            --accent-hover: #ffca2c;
+            --dark: #0f141f;
+            --dark-light: #1a2332;
+            --light: #f5f5f5;
+            --text: #ffffff;
+            --text-muted: #a0aec0;
+            --card-bg: #16213e;
+            --card-hover: #1f2d52;
+            --success: #4caf50;
+            --warning: #ff9800;
+            --danger: #f44336;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --gradient-gold: linear-gradient(135deg, #ffd700 0%, #ffb347 50%, #ffd700 100%);
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.15);
+            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.2);
+            --shadow-glow: 0 0 20px rgba(255, 193, 7, 0.4);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--dark) 0%, #0f3460 50%, #1a1a2e 100%);
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(44, 95, 45, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(151, 188, 98, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 65px;
+            height: 65px;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            cursor: pointer;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+            border: 3px solid white;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-float svg {
+            width: 35px;
+            height: 35px;
+            fill: white;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Header with Logo */
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(22, 33, 62, 0.8);
+            border-radius: 25px;
+            margin-bottom: 40px;
+            border: 3px solid var(--accent);
+            box-shadow: var(--shadow-lg), var(--shadow-glow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 193, 7, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .logo-container {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 20px;
+            background: var(--gradient-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 30px rgba(255, 193, 7, 0.4);
+            position: relative;
+            z-index: 2;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .logo-text {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+            text-shadow: 0 4px 15px rgba(255, 193, 7, 0.5);
+            position: relative;
+            z-index: 2;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: var(--secondary);
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .founder-name {
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-top: 20px;
+            font-weight: 700;
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            z-index: 2;
+        }
+
+        .vision-box {
+            background: rgba(44, 95, 45, 0.2);
+            padding: 20px 30px;
+            border-radius: 15px;
+            margin-top: 25px;
+            border: 2px solid var(--primary-light);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Enhanced Navigation */
+        nav {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            position: sticky;
+            top: 15px;
+            z-index: 100;
+            border: 2px solid var(--secondary);
+            box-shadow: var(--shadow-lg);
+            backdrop-filter: blur(10px);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin: 0;
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            padding: 12px 22px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(44, 95, 45, 0.3);
+            border: 1px solid rgba(151, 188, 98, 0.3);
+        }
+
+        nav a:hover {
+            background: var(--gradient-gold);
+            color: var(--dark);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 193, 7, 0.4);
+        }
+
+        nav a .icon {
+            font-size: 1.2rem;
+        }
+
+        /* Sections */
+        section {
+            background: rgba(22, 33, 62, 0.9);
+            padding: 40px;
+            margin-bottom: 35px;
+            border-radius: 20px;
+            border-left: 6px solid var(--accent);
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-gold);
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+            background: rgba(22, 33, 62, 1);
+        }
+
+        h2 {
+            color: var(--accent);
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            border-bottom: 3px solid var(--secondary);
+            padding-bottom: 15px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        h2 .icon {
+            font-size: 2.5rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        h3 {
+            color: var(--secondary);
+            font-size: 1.6rem;
+            margin: 30px 0 20px;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 18px;
+            font-size: 1.1rem;
+            color: var(--text);
+        }
+
+        /* Enhanced Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .card {
+            background: linear-gradient(135deg, rgba(44, 95, 45, 0.15), rgba(151, 188, 98, 0.1));
+            padding: 30px;
+            border-radius: 18px;
+            border: 2px solid var(--secondary);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: var(--accent);
+            box-shadow: 0 10px 35px rgba(255, 193, 7, 0.3);
+            background: linear-gradient(135deg, rgba(44, 95, 45, 0.25), rgba(151, 188, 98, 0.15));
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card h4 {
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card ul, .card ol {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Enhanced Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+
+        th, td {
+            padding: 16px;
+            text-align: left;
+            border-bottom: 1px solid rgba(151, 188, 98, 0.3);
+        }
+
+        th {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        tr:hover {
+            background: rgba(44, 95, 45, 0.2);
+            transform: scale(1.01);
+            transition: all 0.2s ease;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+            margin: 30px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            width: 3px;
+            height: 100%;
+            background: var(--gradient-gold);
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            margin-bottom: 35px;
+            position: relative;
+            padding: 25px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            border-left: 4px solid var(--accent);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(10px);
+            background: rgba(0, 0, 0, 0.3);
+            box-shadow: 0 5px 20px rgba(255, 193, 7, 0.2);
+        }
+
+        .timeline-item::before {
+            content: '●';
+            position: absolute;
+            left: -32px;
+            top: 10px;
+            color: var(--accent);
+            font-size: 1.8rem;
+            background: var(--dark);
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 2px solid var(--secondary);
+        }
+
+        .timeline-date {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 10px;
+            display: inline-block;
+            background: rgba(255, 193, 7, 0.15);
+            padding: 6px 15px;
+            border-radius: 20px;
+        }
+
+        /* Enhanced Budget Box */
+        .budget-box {
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.15), rgba(151, 188, 98, 0.15));
+            padding: 30px;
+            border-radius: 18px;
+            border: 3px dashed var(--accent);
+            margin: 30px 0;
+            box-shadow: 0 5px 25px rgba(255, 193, 7, 0.2);
+        }
+
+        .budget-total {
+            font-size: 2rem;
+            color: var(--accent);
+            font-weight: 800;
+            text-align: center;
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255, 193, 7, 0.1);
+            border-radius: 12px;
+            text-shadow: 0 2px 10px rgba(255, 193, 7, 0.5);
+        }
+
+        /* Formula Box */
+        .formula-box {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2));
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid var(--accent);
+            font-family: 'Courier New', monospace;
+            margin: 20px 0;
+            box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .formula-box strong {
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+
+        /* CTA Buttons */
+        .cta-button {
+            display: inline-block;
+            background: var(--gradient-gold);
+            color: var(--dark);
+            padding: 16px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin: 25px 0;
+            transition: all 0.4s ease;
+            text-align: center;
+            box-shadow: 0 6px 25px rgba(255, 193, 7, 0.4);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 35px rgba(255, 193, 7, 0.6);
+            border-color: var(--dark);
+        }
+
+        .cta-button span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            border: 2px solid var(--secondary);
+        }
+
+        .progress-bar {
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            height: 35px;
+            border-radius: 18px;
+            width: 0%;
+            transition: width 1s ease;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(44, 95, 45, 0.4);
+        }
+
+        .progress-text {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            top: 50%;
+            transform: translateY(-50%);
+            font-weight: 800;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            font-size: 1.1rem;
+        }
+
+        /* Checklist */
+        .checklist {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .checklist li {
+            padding: 15px 20px;
+            background: rgba(44, 95, 45, 0.15);
+            margin-bottom: 12px;
+            border-radius: 10px;
+            position: relative;
+            padding-left: 45px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(151, 188, 98, 0.3);
+        }
+
+        .checklist li:hover {
+            background: rgba(44, 95, 45, 0.25);
+            transform: translateX(5px);
+            border-color: var(--accent);
+        }
+
+        .checklist li::before {
+            content: '☐';
+            position: absolute;
+            left: 12px;
+            color: var(--accent);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        /* Warning & Success Boxes */
+        .warning-box {
+            background: linear-gradient(135deg, rgba(255, 87, 87, 0.2), rgba(255, 152, 0, 0.15));
+            border: 3px solid var(--danger);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+            box-shadow: 0 5px 20px rgba(244, 67, 54, 0.2);
+        }
+
+        .warning-box h4 {
+            color: var(--danger);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .success-box {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(151, 188, 98, 0.15));
+            border: 3px solid var(--success);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+            box-shadow: 0 5px 20px rgba(76, 175, 80, 0.2);
+        }
+
+        .success-box h4 {
+            color: var(--success);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 50px;
+            background: rgba(22, 33, 62, 0.9);
+            border-radius: 25px;
+            margin-top: 50px;
+            border-top: 4px solid var(--accent);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(255, 193, 7, 0.1) 0%, transparent 70%);
+        }
+
+        .motivational-quote {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            font-style: italic;
+            margin-bottom: 25px;
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Download Button */
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: 14px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin: 20px 10px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--secondary);
+            box-shadow: 0 4px 15px rgba(44, 95, 45, 0.3);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(151, 188, 98, 0.4);
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+        }
+
+        .download-btn svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        /* Price Section */
+        .price-section {
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.1), rgba(151, 188, 98, 0.1));
+            padding: 35px;
+            border-radius: 20px;
+            margin: 30px 0;
+            border: 2px solid var(--accent);
+        }
+
+        .price-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .price-card {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid var(--secondary);
+            transition: all 0.3s ease;
+        }
+
+        .price-card:hover {
+            transform: scale(1.05);
+            border-color: var(--accent);
+            box-shadow: 0 8px 25px rgba(255, 193, 7, 0.3);
+        }
+
+        .price-card h4 {
+            color: var(--accent);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .price-amount {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--success);
+            margin: 15px 0;
+        }
+
+        .price-amount small {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.6rem;
+            }
+            .logo-container {
+                width: 120px;
+                height: 120px;
+            }
+            .logo-text {
+                font-size: 2.2rem;
+            }
+            nav {
+                padding: 15px;
+            }
+            nav a {
+                padding: 10px 16px;
+                font-size: 0.85rem;
+            }
+            section {
+                padding: 25px 20px;
+            }
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+                width: 60px;
+                height: 60px;
+            }
+            .whatsapp-float svg {
+                width: 30px;
+                height: 30px;
+            }
+            .budget-total {
+                font-size: 1.5rem;
+            }
+            .progress-bar {
+                height: 30px;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+            nav, .whatsapp-float, .download-btn, .cta-button {
+                display: none;
+            }
+            section {
+                page-break-inside: avoid;
+                border: 1px solid #ccc;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 5px solid rgba(255, 193, 7, 0.2);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Feature Icons */
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Quick Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, rgba(44, 95, 45, 0.2), rgba(151, 188, 98, 0.1));
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid var(--secondary);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        /* Contact Info Bar */
+        .contact-bar {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            padding: 20px;
+            border-radius: 15px;
+            margin: 30px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--accent);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .contact-item svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--accent);
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading" id="loadingScreen">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/971500000000?text=Hi%20Zishan!%20I%20saw%20your%20ScentVenture%20roadmap%20and%20I%27m%20interested%20in%20your%20perfumes!" 
+       class="whatsapp-float" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       title="Chat on WhatsApp">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.082c2.404 1.323 5.138 2.082 8.067 2.082 8.837 0 16-7.163 16-16s-7.163-16-16-16zm0 29.467c-2.482 0-4.908-0.646-7.07-1.857l-0.507-0.283-4.916 1.287 1.317-4.903-0.326-0.525c-1.267-2.035-1.931-4.382-1.931-6.769 0-7.452 6.065-13.517 13.517-13.517s13.517 6.065 13.517 13.517-6.065 13.517-13.517 13.517zm7.267-10.028c-0.4-0.2-2.367-1.167-2.733-1.3-0.367-0.133-0.633-0.2-0.9 0.2s-1.033 1.3-1.267 1.567c-0.233 0.267-0.467 0.3-0.867 0.1-0.4-0.2-1.7-0.627-3.233-1.993-1.2-1.073-2.017-2.4-2.25-2.8-0.233-0.4-0.025-0.62 0.175-0.82 0.18-0.18 0.4-0.467 0.6-0.7s0.267-0.4 0.4-0.667c0.133-0.267 0.067-0.5-0.033-0.7s-0.9-2.167-1.233-2.967c-0.323-0.777-0.653-0.667-0.9-0.677-0.233-0.01-0.5-0.01-0.767-0.01s-0.667 0.1-1.017 0.483c-0.35 0.383-1.333 1.3-1.333 3.167s1.367 3.667 1.55 3.917c0.183 0.25 2.667 4.067 6.467 5.717 2.867 1.243 3.45 1.0 4.083 0.933 0.633-0.067 2.367-0.967 2.7-1.9s0.333-1.733 0.233-1.9c-0.1-0.167-0.367-0.267-0.767-0.467z"/>
+        </svg>
+    </a>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo-container">
+                <span class="logo-text">SV</span>
+            </div>
+            <h1>🌟 ScentVenture 🌟</h1>
+            <p class="subtitle">From Taxi Driver to Perfume Empire</p>
+            <p class="founder-name">Founder: Zishan</p>
+            <div class="vision-box">
+                <p style="margin: 0; font-size: 1.1rem;">
+                    <strong>🎯 Vision:</strong> Building an AI-Proof, Future-Ready Perfume Business in UAE | 
+                    <strong>💰 Target:</strong> 300+ AED Monthly Profit by Month 3 | 
+                    <strong>🚀 Start:</strong> Only 500-700 AED Investment
+                </p>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav>
+            <ul>
+                <li><a href="#mission"><span class="icon">🎯</span> Mission</a></li>
+                <li><a href="#roadmap"><span class="icon">📅</span> Roadmap</a></li>
+                <li><a href="#sourcing"><span class="icon">🛒</span> Sourcing</a></li>
+                <li><a href="#formulation"><span class="icon">🧪</span> Formulation</a></li>
+                <li><a href="#pricing"><span class="icon">💰</span> Pricing</a></li>
+                <li><a href="#marketing"><span class="icon">📱</span> Marketing</a></li>
+                <li><a href="#budget"><span class="icon">📊</span> Budget</a></li>
+                <li><a href="#action"><span class="icon">🚀</span> Action</a></li>
+            </ul>
+        </nav>
+
+        <!-- Quick Stats -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">90</div>
+                <div class="stat-label">Days to Launch</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">500</div>
+                <div class="stat-label">AED Starting Budget</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">300%</div>
+                <div class="stat-label">Profit Margin</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">10+</div>
+                <div class="stat-label">Trending Scents</div>
+            </div>
+        </div>
+
+        <!-- Section 1: Mission -->
+        <section id="mission">
+            <h2><span class="icon">🎯</span> Mission & Vision</h2>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h4><span class="feature-icon">💡</span>Why Perfume Business?</h4>
+                    <ul>
+                        <li>Fragrance is a <strong>sensory & personal experience</strong></li>
+                        <li>Depends on individual skin chemistry</li>
+                        <li><strong>AI-Proof:</strong> Cannot be replaced by digital/AI</li>
+                        <li>High profit margins (300-500%)</li>
+                        <li>Scalable from home/room</li>
+                        <li>Growing UAE market (5.2B AED annually)</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4><span class="feature-icon">🚖</span>Your Advantages</h4>
+                    <ul>
+                        <li>Living in <strong>Dubai</strong> - perfume capital</li>
+                        <li>Access to <strong>Deira/Murshid Bazar</strong> wholesale</li>
+                        <li>Taxi job = 20-30 daily customer interactions</li>
+                        <li>Part-time friendly (evenings/weekends)</li>
+                        <li>Low startup cost (500-700 AED)</li>
+                        <li>No shop rent needed</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4><span class="feature-icon">🏆</span>Inspiration Model</h4>
+                    <p><strong>Qazi Manzoor</strong> - Independent perfumer in UAE who:</p>
+                    <ul>
+                        <li>Started with small shop in Deira</li>
+                        <li>Used TikTok for transparent mixing videos</li>
+                        <li>Live demonstrations went viral</li>
+                        <li>Built loyal customer base via WhatsApp</li>
+                        <li>Now has multiple locations</li>
+                        <li>Monthly revenue: 50,000+ AED</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin: 40px 0;">
+                <p class="motivational-quote">
+                    "Your taxi is not just a vehicle — it's your mobile showroom, your testing lab, and your marketing channel!"
+                </p>
+            </div>
+        </section>
+
+        <!-- Section 2: 90-Day Roadmap -->
+        <section id="roadmap">
+            <h2><span class="icon">📅</span> 90-Day Roadmap</h2>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">Week 1-2 (Days 1-14)</div>
+                    <h3>Phase 1: Learning & Setup</h3>
+                    <ul class="checklist">
+                        <li>Watch 5-10 YouTube tutorials on perfume mixing</li>
+                        <li>Visit Deira/Murshid Bazar for market research</li>
+                        <li>Purchase initial stock: 5-10 oils, 10-20 bottles, 1L alcohol</li>
+                        <li>Set up mixing station at home/room</li>
+                        <li>Practice basic formulations (10ml, 30ml, 50ml)</li>
+                        <li>Create WhatsApp Business profile</li>
+                        <li>Setup TikTok/Instagram account (@ScentByZishan)</li>
+                        <li>Order custom labels/stickers online</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Week 3-4 (Days 15-30)</div>
+                    <h3>Phase 2: First Sales</h3>
+                    <ul class="checklist">
+                        <li>Target: 20-30 initial orders</li>
+                        <li>Sell to fellow drivers, friends, family</li>
+                        <li>Offer 10ml testers (15-25 AED)</li>
+                        <li>Create price list (10ml, 30ml, 50ml options)</li>
+                        <li>Post first 3 TikTok videos</li>
+                        <li>Collect customer feedback & testimonials</li>
+                        <li>Identify top 3-4 bestselling scents</li>
+                        <li>Reinvest profits into more stock</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Month 2 (Days 31-60)</div>
+                    <h3>Phase 3: Brand Building</h3>
+                    <ul class="checklist">
+                        <li>Create 3 "Signature House Blends"</li>
+                        <li>Design professional labels (Canva)</li>
+                        <li>Increase TikTok posting to 3x/week</li>
+                        <li>Start "Passenger Blind Test" series</li>
+                        <li>Expand to 50ml & 100ml bottles</li>
+                        <li>Target: 100+ total customers</li>
+                        <li>Partner with 1-2 barbershops</li>
+                        <li>Create branded packaging</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Month 3 (Days 61-90)</div>
+                    <h3>Phase 4: Scaling</h3>
+                    <ul class="checklist">
+                        <li>Launch official brand name</li>
+                        <li>Create premium packaging (boxes/bags)</li>
+                        <li>Offer custom blending service</li>
+                        <li>Partner with 2-3 salons/barbershops</li>
+                        <li>Target: 300+ AED monthly profit</li>
+                        <li>Plan for weekend market stall</li>
+                        <li>Document journey for more content</li>
+                        <li>Consider UAE business license</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="progress-container">
+                <h4 style="color: var(--accent); margin-bottom: 15px; font-size: 1.3rem;">📊 Your Progress Tracker</h4>
+                <div class="progress-bar">
+                    <span class="progress-text">Day 0/90 - 0% Complete</span>
+                </div>
+                <p style="margin-top: 15px; font-size: 1rem; color: var(--text-muted);">
+                    <em>💡 Tip: Update this weekly! Fill the bar based on your completion percentage</em>
+                </p>
+            </div>
+        </section>
+
+        <!-- Section 3: Sourcing Guide -->
+        <section id="sourcing">
+            <h2><span class="icon">🛒</span> Sourcing Guide - Deira Markets</h2>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h4><span class="feature-icon">📍</span>Murshid Bazar</h4>
+                    <p><strong>Best for:</strong> Perfume oils, concentrates, dupes</p>
+                    <ul>
+                        <li>Wholesale perfume & cologne market</li>
+                        <li>Located in Bani Yas area</li>
+                        <li>Multiple shops with competitive prices</li>
+                        <li>Ask for "French oils" or "inspired by"</li>
+                        <li>Best time: Evening (6-10 PM)</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4><span class="feature-icon">📍</span>Deira Souq</h4>
+                    <p><strong>Best for:</strong> Empty bottles, sprays, packaging</p>
+                    <ul>
+                        <li>Al Souq Al Kabeer Street</li>
+                        <li>Shaikh Saeed Perfumes area</li>
+                        <li>10ml, 30ml, 50ml, 100ml bottles</li>
+                        <li>Caps, pumps, labels available</li>
+                        <li>Negotiate for bulk discounts</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4><span class="feature-icon">📍</span>Port Saeed Road</h4>
+                    <p><strong>Best for:</strong> Perfumer alcohol, bulk supplies</p>
+                    <ul>
+                        <li>Specialized chemical suppliers</li>
+                        <li>Ask for "perfume grade alcohol"</li>
+                        <li>Bulk discounts on 5L+ purchases</li>
+                        <li>Gloves, syringes, beakers also available</li>
+                        <li>Bring your own containers</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>🔥 Top 10 Trending Oils to Start With</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Fragrance Type</th>
+                        <th>Category</th>
+                        <th>Why It Sells</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><strong>Sauvage Type</strong></td>
+                        <td>Men's Fresh/Spicy</td>
+                        <td>Highest demand in UAE</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><strong>Aventus Type</strong></td>
+                        <td>Men's Fruity/Smoky</td>
+                        <td>Classic, year-round seller</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td><strong>Oud/Bakhoor Type</strong></td>
+                        <td>Unisex/Traditional</td>
+                        <td>UAE local favorite</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td><strong>Baccarat Rouge 540</strong></td>
+                        <td>Unisex Sweet/Amber</td>
+                        <td>Viral on social media</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td><strong>Black Orchid Type</strong></td>
+                        <td>Unisex Dark/Night</td>
+                        <td>Evening/special occasions</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td><strong>La Vie Est Belle</strong></td>
+                        <td>Women's Sweet/Vanilla</td>
+                        <td>Top women's choice</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td><strong>Good Girl Type</strong></td>
+                        <td>Women's Night</td>
+                        <td>Popular for gifting</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td><strong>Erba Pura Type</strong></td>
+                        <td>Unisex Fruity/Musk</td>
+                        <td>Great for hot weather</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td><strong>Delina Type</strong></td>
+                        <td>Women's Rose/Lychee</td>
+                        <td>Trending feminine scent</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td><strong>Tobacco Vanille</strong></td>
+                        <td>Unisex Warm/Gourmand</td>
+                        <td>Winter/night bestseller</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="warning-box">
+                <h4><span class="icon">⚠️</span> Pro Tips for Market Visits</h4>
+                <ul>
+                    <li>Go in <strong>evening</strong> (after your taxi shift) when shops are less crowded</li>
+                    <li>Start with <strong>10-30ml</strong> bottles of each oil (don't buy large quantities)</li>
+                    <li>Ask for <strong>testers</strong> before buying</li>
+                    <li>Negotiate prices - wholesale rates are lower than retail</li>
+                    <li>Get business cards of 3-4 reliable suppliers</li>
+                    <li>Compare prices at 3-4 shops before buying</li>
+                    <li>Check oil quality on paper strip first</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 4: Formulation -->
+        <section id="formulation">
+            <h2><span class="icon">🧪</span> Formulation & Mixing Guide</h2>
+
+            <h3>Basic Ratios for Long-Lasting Perfume</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Oil %</th>
+                        <th>Alcohol %</th>
+                        <th>Longevity</th>
+                        <th>Best For</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Eau de Toilette (EDT)</strong></td>
+                        <td>8-12%</td>
+                        <td>88-92%</td>
+                        <td>3-4 hours</td>
+                        <td>Daily wear, office</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Eau de Parfum (EDP)</strong></td>
+                        <td>15-20%</td>
+                        <td>80-85%</td>
+                        <td>5-7 hours</td>
+                        <td><strong>RECOMMENDED</strong> - Best value</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Extrait/Parfum</strong></td>
+                        <td>20-30%</td>
+                        <td>70-80%</td>
+                        <td>8+ hours</td>
+                        <td>Premium, special occasions</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>📐 Calculation Examples</h3>
+
+            <div class="formula-box">
+                <strong>For 50ml EDP (18% oil concentration):</strong><br>
+                Oil = 50 × 0.18 = <strong>9 ml</strong><br>
+                Alcohol = 50 - 9 = <strong>41 ml</strong>
+            </div>
+
+            <div class="formula-box">
+                <strong>For 10ml Travel Size (18% oil concentration):</strong><br>
+                Oil = 10 × 0.18 = <strong>1.8 ml</strong><br>
+                Alcohol = 10 - 1.8 = <strong>8.2 ml</strong>
+            </div>
+
+            <div class="formula-box">
+                <strong>For 30ml EDP (20% oil concentration):</strong><br>
+                Oil = 30 × 0.20 = <strong>6 ml</strong><br>
+                Alcohol = 30 - 6 = <strong>24 ml</strong>
+            </div>
+
+            <h3>🏠 Simple Home Mixing Process (No Expensive Tools)</h3>
+
+            <ol>
+                <li><strong>Prepare Your Space:</strong>
+                    <ul>
+                        <li>Clean, flat surface (table/desk)</li>
+                        <li>Good ventilation (open window)</li>
+                        <li>No open flames (alcohol is flammable)</li>
+                    </ul>
+                </li>
+
+                <li><strong>Tools You Need:</strong>
+                    <ul>
+                        <li>Disposable syringes (1ml, 5ml) - 5 AED each</li>
+                        <li>Small glass beaker or clean glass cup</li>
+                        <li>Disposable gloves</li>
+                        <li>Face mask</li>
+                        <li>Clean cloth/paper towels</li>
+                    </ul>
+                </li>
+
+                <li><strong>Step-by-Step Mixing:</strong>
+                    <ul>
+                        <li><strong>Step 1:</strong> Measure oil using syringe (e.g., 9ml for 50ml EDP)</li>
+                        <li><strong>Step 2:</strong> Pour oil into beaker</li>
+                        <li><strong>Step 3:</strong> Add perfume alcohol (e.g., 41ml)</li>
+                        <li><strong>Step 4:</strong> Stir gently for 30-60 seconds</li>
+                        <li><strong>Step 5:</strong> Pour into spray bottle using funnel</li>
+                        <li><strong>Step 6:</strong> Close cap tightly and shake for 10 seconds</li>
+                    </ul>
+                </li>
+
+                <li><strong>Aging (Maceration):</strong>
+                    <ul>
+                        <li>Store in dark, cool place for <strong>24-72 hours</strong></li>
+                        <li>This allows fragrance to "settle" and mature</li>
+                        <li>Shake bottle once daily during aging</li>
+                    </ul>
+                </li>
+
+                <li><strong>Testing:</strong>
+                    <ul>
+                        <li>Spray on paper strip - wait 1 minute</li>
+                        <li>Spray on your wrist - check after 30 min, 2 hours, 4 hours</li>
+                        <li>Note longevity and scent evolution</li>
+                        <li>Adjust formula if needed (add more oil for stronger scent)</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <div class="success-box">
+                <h4><span class="icon">✅</span> Quality Checklist</h4>
+                <ul class="checklist">
+                    <li>Only use <strong>Perfumer's Alcohol</strong> (not medical/isopropyl alcohol)</li>
+                    <li>Always wear gloves when handling alcohol</li>
+                    <li>Label every bottle with date and formula</li>
+                    <li>Keep bottles away from direct sunlight</li>
+                    <li>Store oils in cool, dark place (room temperature)</li>
+                    <li>Test each batch before selling</li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                <h4><span class="icon">⚠️</span> Safety Warnings</h4>
+                <ul>
+                    <li><strong>Flammable:</strong> Keep alcohol away from heat, sparks, flames</li>
+                    <li><strong>Ventilation:</strong> Work in well-ventilated area</li>
+                    <li><strong>Eye Protection:</strong> Avoid contact with eyes</li>
+                    <li><strong>Children:</strong> Keep all materials away from children</li>
+                    <li><strong>Disposal:</strong> Don't pour alcohol down drain - evaporate in open area</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 5: Pricing -->
+        <section id="pricing">
+            <h2><span class="icon">💰</span> Pricing & Products</h2>
+
+            <div class="price-section">
+                <h3 style="text-align: center; color: var(--accent); font-size: 1.8rem;">Our Product Range</h3>
+                <div class="price-grid">
+                    <div class="price-card">
+                        <h4>🧪 10ml Tester</h4>
+                        <div class="price-amount">20 <small>AED</small></div>
+                        <p>Perfect for trying new scents</p>
+                        <p>5-6 hours longevity</p>
+                        <p>Travel-friendly size</p>
+                    </div>
+                    <div class="price-card">
+                        <h4>✨ 30ml Standard</h4>
+                        <div class="price-amount">50 <small>AED</small></div>
+                        <p>Best seller - Daily use</p>
+                        <p>6-7 hours longevity</p>
+                        <p>Great value for money</p>
+                    </div>
+                    <div class="price-card">
+                        <h4>🌟 50ml Premium</h4>
+                        <div class="price-amount">80 <small>AED</small></div>
+                        <p>Long-lasting EDP</p>
+                        <p>7-8 hours longevity</p>
+                        <p>Premium packaging</p>
+                    </div>
+                    <div class="price-card">
+                        <h4>👑 100ml Luxury</h4>
+                        <div class="price-amount">150 <small>AED</small></div>
+                        <p>Maximum longevity</p>
+                        <p>8+ hours</p>
+                        <p>Luxury gift box</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="#" class="download-btn" onclick="downloadPriceList(); return false;">
+                    <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                    Download Price List (PDF)
+                </a>
+                <a href="https://wa.me/971500000000?text=Hi%20Zishan!%20I%20want%20to%20order%20perfume." class="download-btn" target="_blank">
+                    <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+                    Order on WhatsApp
+                </a>
+            </div>
+
+            <h3>💡 Custom Blending Service</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>🎨 Create Your Scent</h4>
+                    <ul>
+                        <li>Choose 2-3 oils to blend</li>
+                        <li>Custom ratio as per your preference</li>
+                        <li>10ml custom blend: 30 AED</li>
+                        <li>30ml custom blend: 70 AED</li>
+                        <li>50ml custom blend: 110 AED</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>🎁 Gift Sets</h4>
+                    <ul>
+                        <li>3×�10ml testers: 55 AED (save 5 AED)</li>
+                        <li>5×�10ml collection: 90 AED (save 10 AED)</li>
+                        <li>30ml + 10ml combo: 65 AED</li>
+                        <li>50ml + 30ml + 10ml: 135 AED</li>
+                        <li>Free gift box on orders 100+ AED</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Marketing -->
+        <section id="marketing">
+            <h2><span class="icon">📱</span> TikTok & Marketing Strategy</h2>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h4><span class="feature-icon">🎬</span>Content Format 1</h4>
+                    <h4 style="color: var(--secondary); font-size: 1.2rem;">"Taxi Driver Perfumer"</h4>
+                    <p><strong>Hook:</strong> "I drive a taxi by day, make perfumes by night"</p>
+                    <p><strong>Structure:</strong></p>
+                    <ul>
+                        <li>Show your taxi (5 sec)</li>
+                        <li>Cut to room mixing setup (10 sec)</li>
+                        <li>Show mixing process (10 sec)</li>
+                        <li>Final product reveal (5 sec)</li>
+                        <li>CTA: "DM for 10ml testers"</li>
+                    </ul>
+                    <p><strong>Duration:</strong> 30-40 seconds</p>
+                </div>
+
+                <div class="card">
+                    <h4><span class="feature-icon">🎬</span>Content Format 2</h4>
+                    <h4 style="color: var(--secondary); font-size: 1.2rem;">"Passenger Blind Test"</h4>
+                    <p><strong>Hook:</strong> "Asking my passengers to guess the perfume"</p>
+                    <p><strong>Structure:</strong></p>
+                    <ul>
+                        <li>Introduce 2-3 scent strips (5 sec)</li>
+                        <li>Passenger smells each one (10 sec)</li>
+                        <li>Passenger picks favorite (10 sec)</li>
+                        <li>Reveal which is yours (5 sec)</li>
+                        <li>Customer testimonial/reaction</li>
+                    </ul>
+                    <p><strong>Duration:</strong> 30-45 seconds</p>
+                </div>
+
+                <div class="card">
+                    <h4><span class="feature-icon">🎬</span>Content Format 3</h4>
+                    <h4 style="color: var(--secondary); font-size: 1.2rem;">"Budget Lab"</h4>
+                    <p><strong>Hook:</strong> "How I make 3 perfumes for 50 AED"</p>
+                    <p><strong>Structure:</strong></p>
+                    <ul>
+                        <li>Show all materials with prices (5 sec)</li>
+                        <li>Step-by-step mixing (15 sec)</li>
+                        <li>Final 3 bottles (5 sec)</li>
+                        <li>Profit calculation (5 sec)</li>
+                        <li>CTA: "Want to learn? Follow me"</li>
+                    </ul>
+                    <p><strong>Duration:</strong> 30-40 seconds</p>
+                </div>
+            </div>
+
+            <h3>📅 Posting Schedule (Part-Time Friendly)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Day</th>
+                        <th>Time</th>
+                        <th>Content Type</th>
+                        <th>Goal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Monday</td>
+                        <td>8:00 PM</td>
+                        <td>Taxi Driver Perfumer (behind-scenes)</td>
+                        <td>Build story/connection</td>
+                    </tr>
+                    <tr>
+                        <td>Wednesday</td>
+                        <td>8:00 PM</td>
+                        <td>Passenger Blind Test</td>
+                        <td>Social proof</td>
+                    </tr>
+                    <tr>
+                        <td>Friday</td>
+                        <td>6:00 PM</td>
+                        <td>Budget Lab / Tutorial</td>
+                        <td>Educate & sell</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>🎯 Hashtag Strategy</h3>
+            <div class="formula-box">
+                <strong>Use 5-7 hashtags per post:</strong><br>
+                #DubaiPerfume #PerfumeTok #UAEbusiness #TaxiDriverHustle #SideHustleDubai #PerfumeMaking #DeiraMarket #BudgetBusiness #ZishanPerfumes #ScentVenture #DubaiLife #PerfumeAddict #ArabicPerfume #OudLovers #FragranceCommunity
+            </div>
+
+            <h3>💬 Call-to-Action (CTA) Examples</h3>
+            <ul>
+                <li>"Comment 'SCENT' for price list"</li>
+                <li>"DM for 10ml testers - only 20 AED"</li>
+                <li>"First 5 customers get free delivery"</li>
+                <li>"Tag a friend who loves perfumes"</li>
+                <li>"Save this for your side hustle inspiration"</li>
+                <li>"WhatsApp link in bio - order now!"</li>
+            </ul>
+
+            <div class="success-box">
+                <h4><span class="icon">🎬</span> Your First 3 Video Scripts</h4>
+
+                <p><strong>Video 1: Introduction (Day 1)</strong></p>
+                <div class="formula-box">
+                    <strong>0-3 sec:</strong> "This is my taxi... and this is how I make perfumes after my shift"<br>
+                    <strong>4-15 sec:</strong> Show mixing setup, pour oil<br>
+                    <strong>16-25 sec:</strong> Add alcohol, shake bottle<br>
+                    <strong>26-30 sec:</strong> "10ml tester - 20 AED. DM me!"<br>
+                    <strong>Hashtags:</strong> #DubaiPerfume #SideHustle #TaxiDriver
+                </div>
+
+                <p><strong>Video 2: Market Haul (Day 3)</strong></p>
+                <div class="formula-box">
+                    <strong>0-3 sec:</strong> "I spent 500 AED at Deira market..."<br>
+                    <strong>4-15 sec:</strong> Show all oils, bottles, alcohol<br>
+                    <strong>16-25 sec:</strong> "This makes 30 bottles = 900 AED revenue"<br>
+                    <strong>26-30 sec:</strong> "Follow to see my journey!"<br>
+                    <strong>Hashtags:</strong> #DeiraMarket #PerfumeBusiness #Dubai
+                </div>
+
+                <p><strong>Video 3: Customer Reaction (Day 7)</strong></p>
+                <div class="formula-box">
+                    <strong>0-3 sec:</strong> "My first customer's reaction..."<br>
+                    <strong>4-15 sec:</strong> Customer smells, smiles, gives feedback<br>
+                    <strong>16-25 sec:</strong> "He bought 3 bottles!"<br>
+                    <strong>26-30 sec:</strong> "You can be next! DM for testers"<br>
+                    <strong>Hashtags:</strong> #CustomerReview #PerfumeTok #UAE
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: Budget -->
+        <section id="budget">
+            <h2><span class="icon">📊</span> Budget & Financial Plan</h2>
+
+            <h3>Initial Investment (Week 1-2)</h3>
+            <div class="budget-box">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Quantity</th>
+                            <th>Unit Price (AED)</th>
+                            <th>Total (AED)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Perfume Oils (10-30ml each)</td>
+                            <td>10 types</td>
+                            <td>20-40</td>
+                            <td>250-400</td>
+                        </tr>
+                        <tr>
+                            <td>Empty Bottles (10/30/50ml)</td>
+                            <td>30 bottles</td>
+                            <td>2-5</td>
+                            <td>80-150</td>
+                        </tr>
+                        <tr>
+                            <td>Perfumer Alcohol</td>
+                            <td>1 Liter</td>
+                            <td>40-60</td>
+                            <td>40-60</td>
+                        </tr>
+                        <tr>
+                            <td>Syringes, Gloves, Masks</td>
+                            <td>1 set</td>
+                            <td>-</td>
+                            <td>30-50</td>
+                        </tr>
+                        <tr>
+                            <td>Labels & Stickers</td>
+                            <td>50 pieces</td>
+                            <td>-</td>
+                            <td>20-40</td>
+                        </tr>
+                        <tr>
+                            <td>Packaging (bags/boxes)</td>
+                            <td>30 pieces</td>
+                            <td>-</td>
+                            <td>30-50</td>
+                        </tr>
+                        <tr>
+                            <td><strong>TOTAL</strong></td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td><strong>450-750 AED</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="budget-total">
+                    💵 Start with 500-700 AED only!
+                </div>
+            </div>
+
+            <h3>Revenue Projections (Month 1-3)</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Month 1</h4>
+                    <ul>
+                        <li><strong>Target:</strong> 30 bottles sold</li>
+                        <li><strong>Average Price:</strong> 40 AED</li>
+                        <li><strong>Revenue:</strong> 1,200 AED</li>
+                        <li><strong>Cost:</strong> 500 AED</li>
+                        <li><strong>Profit:</strong> <strong>700 AED</strong></li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Month 2</h4>
+                    <ul>
+                        <li><strong>Target:</strong> 60 bottles sold</li>
+                        <li><strong>Average Price:</strong> 50 AED</li>
+                        <li><strong>Revenue:</strong> 3,000 AED</li>
+                        <li><strong>Cost:</strong> 1,200 AED</li>
+                        <li><strong>Profit:</strong> <strong>1,800 AED</strong></li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Month 3</h4>
+                    <ul>
+                        <li><strong>Target:</strong> 100 bottles sold</li>
+                        <li><strong>Average Price:</strong> 55 AED</li>
+                        <li><strong>Revenue:</strong> 5,500 AED</li>
+                        <li><strong>Cost:</strong> 2,200 AED</li>
+                        <li><strong>Profit:</strong> <strong>3,300 AED</strong></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="success-box">
+                <h4><span class="icon">💡</span> Financial Tips</h4>
+                <ul>
+                    <li><strong>Reinvest 50%</strong> of profits back into business (buy more oils, better bottles)</li>
+                    <li><strong>Keep 30%</strong> for personal savings/emergency fund</li>
+                    <li><strong>Use 20%</strong> for marketing (paid ads, better packaging)</li>
+                    <li>Track EVERY expense in a notebook or Excel sheet</li>
+                    <li>Don't take loans initially - start small and scale gradually</li>
+                    <li>Offer bundle deals to increase average order value</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 8: 7-Day Action Plan -->
+        <section id="action">
+            <h2><span class="icon">🚀</span> 7-Day Action Plan - START NOW!</h2>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">Day 1</div>
+                    <h3>Research & Education</h3>
+                    <ul class="checklist">
+                        <li>Watch 5 YouTube videos on perfume mixing ratios</li>
+                        <li>Search "perfume making tutorial" on TikTok</li>
+                        <li>Note down 3-5 key learning points</li>
+                        <li>Join 2-3 perfume Facebook groups</li>
+                        <li>Save this page as your reference guide</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Day 2</div>
+                    <h3>Market Reconnaissance</h3>
+                    <ul class="checklist">
+                        <li>Visit Deira/Murshid Bazar (evening after shift)</li>
+                        <li>Ask prices at 3-4 different shops</li>
+                        <li>Collect business cards</li>
+                        <li>Don't buy yet - just observe</li>
+                        <li>Take photos of shops (for reference)</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Day 3</div>
+                    <h3>First Purchase</h3>
+                    <ul class="checklist">
+                        <li>Buy 5 perfume oils (10-30ml each)</li>
+                        <li>Buy 10 empty bottles (mix of 10/30/50ml)</li>
+                        <li>Buy 1L perfumer alcohol</li>
+                        <li>Buy syringes, gloves, labels</li>
+                        <li>Total budget: 400-500 AED</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Day 4</div>
+                    <h3>First Mixing Session</h3>
+                    <ul class="checklist">
+                        <li>Set up clean workspace at home</li>
+                        <li>Mix 3 different formulas (10ml each, 18% EDP)</li>
+                        <li>Label each bottle with date & formula</li>
+                        <li>Start aging process (24-72 hours)</li>
+                        <li>Take photos/videos for content</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Day 5</div>
+                    <h3>Testing & Feedback</h3>
+                    <ul class="checklist">
+                        <li>Test your perfumes on paper strips</li>
+                        <li>Test on your own skin (morning, afternoon, evening)</li>
+                        <li>Give samples to 2-3 friends/fellow drivers</li>
+                        <li>Collect honest feedback</li>
+                        <li>Note which scents get best reactions</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Day 6</div>
+                    <h3>Social Media Setup</h3>
+                    <ul class="checklist">
+                        <li>Create TikTok account: @ScentByZishan</li>
+                        <li>Create Instagram account (same name)</li>
+                        <li>Create WhatsApp Business profile</li>
+                        <li>Post your first video (taxi + mixing)</li>
+                        <li>Set up price list in notes</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Day 7</div>
+                    <h3>First Sales Push</h3>
+                    <ul class="checklist">
+                        <li>Share WhatsApp status with price list</li>
+                        <li>Tell 5 fellow drivers about your business</li>
+                        <li>Offer "first customer discount" (10% off)</li>
+                        <li>Post second TikTok video (market haul)</li>
+                        <li>Target: Get 3-5 orders today!</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="success-box">
+                <h4><span class="icon">📞</span> Your First Sales Pitch</h4>
+                <p><strong>For Fellow Drivers:</strong></p>
+                <div class="formula-box">
+                    "Bro, I started making perfumes part-time. I have 10ml testers for only 20 AED - lasts 6-7 hours like branded ones. Want to try? I can give you one tomorrow after shift."
+                </div>
+
+                <p><strong>For Friends/Family:</strong></p>
+                <div class="formula-box">
+                    "I'm starting a small perfume business. I make EDP quality (18% oil) for half the market price. 30ml is 50 AED only. Can I give you a sample to test?"
+                </div>
+
+                <p><strong>For TikTok/Instagram DMs:</strong></p>
+                <div class="formula-box">
+                    "Thanks for your interest! I make fresh EDP perfumes in Dubai. 10ml tester: 20 AED, 30ml: 50 AED, 50ml: 80 AED. Free delivery in Deira/Bani Yas. Which scent would you like to try?"
+                </div>
+            </div>
+
+            <div style="text-align: center; margin: 40px 0;">
+                <a href="#" class="cta-button" onclick="alert('Start TODAY! Your journey begins NOW! 🚀\n\nRemember:\n✅ Day 1-2: Research & Market Visit\n✅ Day 3: First Purchase\n✅ Day 4: First Mixing\n✅ Day 7: First Sales\n\nYou got this, Zishan! 💪'); return false;">
+                    <span>🎯 I'M READY TO START - LET'S GO!</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Section 9: AI-Proof Business -->
+        <section id="aiproof">
+            <h2><span class="icon">🤖</span> Why This Business is AI-Proof</h2>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h4><span class="feature-icon">🧬</span>Human Chemistry Factor</h4>
+                    <p>Fragrance reacts differently on every person's skin due to:</p>
+                    <ul>
+                        <li>pH levels</li>
+                        <li>Body temperature</li>
+                        <li>Diet and lifestyle</li>
+                        <li>Genetics</li>
+                    </ul>
+                    <p style="color: var(--accent); font-weight: 600; margin-top: 15px;"><strong>AI cannot replicate this personal experience.</strong></p>
+                </div>
+
+                <div class="card">
+                    <h4><span class="feature-icon">👃</span>Sensory Experience</h4>
+                    <p>Perfume is:</p>
+                    <ul>
+                        <li>Smell (olfactory sense)</li>
+                        <li>Emotion (memory trigger)</li>
+                        <li>Identity (personal signature)</li>
+                        <li>Culture (tradition & heritage)</li>
+                    </ul>
+                    <p style="color: var(--accent); font-weight: 600; margin-top: 15px;"><strong>Digital cannot replace physical senses.</strong></p>
+                </div>
+
+                <div class="card">
+                    <h4><span class="feature-icon">🎨</span>Customization Edge</h4>
+                    <p>What you offer that big brands can't:</p>
+                    <ul>
+                        <li>Personal consultation</li>
+                        <li>Custom blending on request</li>
+                        <li>Small batch freshness</li>
+                        <li>Direct customer relationship</li>
+                    </ul>
+                    <p style="color: var(--accent); font-weight: 600; margin-top: 15px;"><strong>Your competitive advantage!</strong></p>
+                </div>
+            </div>
+
+            <div class="success-box">
+                <h4><span class="icon">✅</span> Your Unfair Advantages</h4>
+                <ul>
+                    <li><strong>Location:</strong> You're in Dubai - perfume capital of the world</li>
+                    <li><strong>Access:</strong> Deira markets are 30 min from you</li>
+                    <li><strong>Story:</strong> "Taxi driver making perfumes" is UNIQUE and viral-worthy</li>
+                    <li><strong>Low Overhead:</strong> No shop rent, no employees, work from home</li>
+                    <li><strong>Flexibility:</strong> Scale up/down based on your taxi schedule</li>
+                    <li><strong>Customer Base:</strong> Daily interaction with 20-30 passengers = potential customers</li>
+                    <li><strong>First-Mover:</strong> No one in your circle is doing this</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Contact Bar -->
+        <div class="contact-bar">
+            <div class="contact-item">
+                <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+                <span>WhatsApp: +971 50 XXX XXXX</span>
+            </div>
+            <div class="contact-item">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                <span>TikTok: @ScentByZishan</span>
+            </div>
+            <div class="contact-item">
+                <svg viewBox="0 0 24 24"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
+                <span>Email: zishan@scentventure.ae</span>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p class="motivational-quote">
+                "Every successful empire started with a single step. Your taxi is your throne. Your passengers are your market. Your dream is your destination."
+            </p>
+            <p style="margin-top: 25px; color: var(--secondary); font-size: 1.1rem;">
+                <strong>Created for:</strong> Zishan - Future Perfume Mogul of Dubai 🌟<br>
+                <strong>Project Name:</strong> ScentVenture | 
+                <strong>Brand:</strong> Scent by Zishan<br>
+                <strong>Start Date:</strong> 2026 | 
+                <strong>Target:</strong> 300+ AED monthly profit by Month 3
+            </p>
+            <p style="margin-top: 20px; font-size: 1rem; color: var(--text-muted);">
+                <em>Remember: Consistency beats perfection. Start small, think big, move fast! 🚀</em>
+            </p>
+            <div style="margin-top: 25px;">
+                <a href="#" class="download-btn" onclick="window.print(); return false;">
+                    <svg viewBox="0 0 24 24"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1V4c0-.55-.45-1-1-1s-1 .45-1 1v7h-2V4c0-.55-.45-1-1-1s-1 .45-1 1v7H8V4c0-.55-.45-1-1-1s-1 .45-1 1v7c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2v-1c0-.55-.45-1-1-1z"/></svg>
+                    Print This Guide
+                </a>
+                <a href="#" class="download-btn" onclick="downloadPriceList(); return false;">
+                    <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                    Download Price List
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Loading Screen
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loadingScreen').style.opacity = '0';
+                setTimeout(function() {
+                    document.getElementById('loadingScreen').style.display = 'none';
+                }, 500);
+            }, 1000);
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                targetSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+
+        // Price List Download Function
+        function downloadPriceList() {
+            const priceList = `
+SCENT BY ZISHAN - PRICE LIST
+==============================
+
+📞 WhatsApp: +971 50 XXX XXXX
+📍 Location: Deira, Dubai
+🚚 Free Delivery in Deira/Bani Yas
+
+PRODUCT RANGE
+=============
+
+🧪 10ml Tester - 20 AED
+   - Perfect for trying new scents
+   - 5-6 hours longevity
+   - Travel-friendly size
+
+✨ 30ml Standard - 50 AED
+   - Best seller - Daily use
+   - 6-7 hours longevity
+   - Great value for money
+
+🌟 50ml Premium - 80 AED
+   - Long-lasting EDP
+   - 7-8 hours longevity
+   - Premium packaging
+
+👑 100ml Luxury - 150 AED
+   - Maximum longevity
+   - 8+ hours
+   - Luxury gift box
+
+CUSTOM BLENDING
+===============
+🎨 Create Your Scent
+- 10ml custom blend: 30 AED
+- 30ml custom blend: 70 AED
+- 50ml custom blend: 110 AED
+
+GIFT SETS
+=========
+🎁 3×�10ml testers: 55 AED (save 5 AED)
+🎁 5×�10ml collection: 90 AED (save 10 AED)
+🎁 30ml + 10ml combo: 65 AED
+🎁 50ml + 30ml + 10ml: 135 AED
+🎁 Free gift box on orders 100+ AED
+
+TOP 10 SCENTS
+=============
+1. Sauvage Type (Men's Fresh/Spicy)
+2. Aventus Type (Men's Fruity/Smoky)
+3. Oud/Bakhoor (Unisex Traditional)
+4. Baccarat Rouge 540 (Unisex Sweet)
+5. Black Orchid (Unisex Dark/Night)
+6. La Vie Est Belle (Women's Sweet)
+7. Good Girl (Women's Night)
+8. Erba Pura (Unisex Fruity)
+9. Delina (Women's Rose/Lychee)
+10. Tobacco Vanille (Unisex Warm)
+
+HOW TO ORDER
+============
+1. WhatsApp: +971 50 XXX XXXX
+2. Send: Scent name + Size + Quantity
+3. Confirm delivery location
+4. Pay on delivery (COD)
+5. Enjoy your fragrance!
+
+SPECIAL OFFERS
+==============
+✅ First order: 10% OFF
+✅ 3+ bottles: Free delivery
+✅ 5+ bottles: Free 10ml tester
+✅ Referral: 15% OFF for both
+
+BUSINESS HOURS
+==============
+Monday-Saturday: 10 AM - 10 PM
+Friday: 2 PM - 10 PM
+Sunday: By appointment
+
+==============================
+ScentVenture - From Taxi Driver to Perfume Empire
+Created for: Zishan | 2026
+            `.trim();
+
+            const blob = new Blob([priceList], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'ScentByZishan_PriceList.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+
+            alert('✅ Price List Downloaded!\n\nFile: ScentByZishan_PriceList.txt\n\nYou can also share this with customers!');
+        }
+
+        // Add scroll animation to sections
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'all 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
